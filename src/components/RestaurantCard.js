@@ -7,10 +7,18 @@ const RestaurantCard = (props) => {
   return (
     <div className="res-card">
       <img src={CDN_URL + img} className="res-logo" />
-      <h3>{name}</h3>
-      <h4>{stars} ⭐️</h4>
+      <h3
+        style={{
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          textOverflow: "ellipsis",
+        }}
+      >
+        {name}
+      </h3>
+      <h3>{stars} ⭐️</h3>
       <br />
-      <h5
+      <p
         style={{
           overflow: "hidden",
           whiteSpace: "nowrap",
@@ -18,8 +26,8 @@ const RestaurantCard = (props) => {
         }}
       >
         {cuisine}
-      </h5>
-      <h5>{delivery} minutes</h5>
+      </p>
+      <p>{delivery} minutes</p>
     </div>
   );
 };

@@ -136,6 +136,20 @@ body {
   margin-bottom: 10px;
 }
 
+.stars-high {
+  width: 55px;
+  background-color: rgba(0, 255, 68, 0.3);
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+.stars-low {
+  width: 55px;
+  background-color: rgba(255, 247, 0, 0.3);
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
 .shimmer-container {
   display: flex;
   flex-wrap: wrap;

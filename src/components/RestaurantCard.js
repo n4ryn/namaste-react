@@ -16,8 +16,10 @@ const RestaurantCard = (props) => {
       >
         {name}
       </h3>
-      <h3>{stars} ⭐️</h3>
+      <h3 className={stars >= 4 ? "stars-high" : "stars-low"}>{stars} ⭐️</h3>
+
       <br />
+
       <p
         style={{
           overflow: "hidden",

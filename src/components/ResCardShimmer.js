@@ -1,4 +1,4 @@
-const Shimmer = () => {
+const ResCardShimmer = () => {
   return (
     <div className="shimmer-container">
       <div className="shimmer-card">
@@ -39,4 +39,4 @@ const Shimmer = () => {
   );
 };
 
-export default Shimmer;
+export default ResCardShimmer;

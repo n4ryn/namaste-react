@@ -1,27 +1,23 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import RestaurantCard from "./RestaurantCard";
-import Shimmer from "./Shimmer";
+import ResCardShimmer from "./ResCardShimmer";
+import { RES_LIST } from "../utils/constants";
 
 const Body = () => {
+  // State and variables
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
-  // Whenever state variable updates, react trigger a reconciliation cycle(re-render the component)
-  console.log("Component Rerender");
-
-  // First the body is rendered the the useEffect is called
   useEffect(() => {
     fetchData();
   }, []);
 
+  // Functions
   const fetchData = async () => {
-    const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.9124336&lng=75.7872709&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-
-    console.log(data);
+    const data = await fetch(RES_LIST);
     const json = await data?.json();
 
     setListOfRestaurants(
@@ -63,6 +59,7 @@ const Body = () => {
             setSearchText(e?.target?.value);
           }}
         />
+
         <button className="search-btn" onClick={handleSearch}>
           Search
         </button>
@@ -72,23 +69,20 @@ const Body = () => {
         <button className="filter-btn" onClick={handleResetFilter}>
           All restaurants
         </button>
+
         <button className="filter-btn" onClick={handleFilter}>
           Top rated restaurants
         </button>
       </div>
+
       {filteredRestaurants?.length === 0 ? (
-        <Shimmer />
+        <ResCardShimmer />
       ) : (
         <div className="res-container">
           {filteredRestaurants?.map((row) => (
-            <RestaurantCard
-              key={row?.info?.id}
-              name={row?.info?.name}
-              cuisine={row?.info?.cuisines.join(", ")}
-              stars={row?.info?.avgRating}
-              delivery={row?.info?.sla?.deliveryTime}
-              img={row?.info?.cloudinaryImageId}
-            />
+            <Link key={row?.info?.id} to={`/restaurants/${row?.info?.id}`}>
+              <RestaurantCard resData={row?.info} />
+            </Link>
           ))}
         </div>
       )}

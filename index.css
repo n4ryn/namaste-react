@@ -12,6 +12,15 @@ body {
   margin: auto;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -20,6 +29,7 @@ body {
   box-shadow: 0px 6px 10px 6px rgba(255, 0, 0, 0.2);
   border-radius: 0px 0px 10px 10px;
   height: 79px;
+  margin-bottom: 30px;
 }
 
 .logo {
@@ -31,7 +41,6 @@ body {
 
 .nav-items > ul {
   display: flex;
-  list-style-type: none;
 }
 
 .nav-items > ul > li {
@@ -55,10 +64,26 @@ body {
   border-radius: 5px;
 }
 
+.add-btn {
+  width: 100%;
+  height: 30px;
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
 .body {
-  margin-top: 30px;
-  min-height: calc(100vh - 139px);
+  min-height: calc(100vh - 151px);
   height: 100%;
+}
+
+.search,
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-bar {
@@ -84,9 +109,11 @@ body {
   border-radius: 5px;
 }
 
-.res-container {
+.res-container,
+.shimmer-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .filter-btn {
@@ -101,7 +128,8 @@ body {
 
 .filter-btn:hover,
 .login-btn:hover,
-.search-btn:hover {
+.search-btn:hover,
+.add-btn:hover {
   box-shadow: 0px 0px 10px 2px rgba(255, 0, 0, 0.2);
   background-color: rgba(255, 0, 0, 0.6);
 }
@@ -136,8 +164,16 @@ body {
   margin-bottom: 10px;
 }
 
+.res-meta,
+.res-menu-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .stars-high {
   width: 55px;
+  font-weight: 500;
   background-color: rgba(0, 255, 68, 0.3);
   padding: 3px 6px;
   border-radius: 5px;
@@ -150,11 +186,10 @@ body {
   border-radius: 5px;
 }
 
-.shimmer-container {
-  display: flex;
-  flex-wrap: wrap;
+.breaker {
+  font-weight: 900;
+  margin: 0px auto;
 }
-
 .shimmer-card {
   width: 200px;
   height: 290px;
@@ -181,5 +216,51 @@ body {
 }
 
 .footer {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.res-menu-card {
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  height: 200px;
+  padding: 0px 20px;
+  margin-bottom: 40px;
+}
+
+.res-menu-card > img {
+  height: 100%;
+  width: 200px;
+}
+
+.res-menu-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+
+.res-menu-desc > div > h1 {
+  margin-bottom: 10px;
+}
+
+.res-menu-meta {
+  width: 230px;
+}
+
+.menu-items {
+  margin: 10px 0px;
+  border-bottom: 1px solid rgba(225, 0, 0, 0.3);
   padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+}
+
+.menu-items:hover {
+  box-shadow: 0px 10px 6px rgba(225, 0, 0, 0.1);
 }

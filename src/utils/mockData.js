@@ -740,5 +740,4 @@ const resData = {
   ],
 };
 
-// Default export (one file can have only one default export)
 export default resData;

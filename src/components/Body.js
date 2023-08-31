@@ -28,10 +28,15 @@ const Body = () => {
     );
   };
 
-  const handleFilter = () => {
+  const handleTopResFilter = () => {
     const filteredList = listOfRestaurants?.filter(
       (res) => res?.info?.avgRating > 4.3
     );
+    setFilteredRestaurants(filteredList);
+  };
+
+  const handleVegResFilter = () => {
+    const filteredList = listOfRestaurants?.filter((res) => res?.info?.veg);
     setFilteredRestaurants(filteredList);
   };
 
@@ -70,8 +75,12 @@ const Body = () => {
           All restaurants
         </button>
 
-        <button className="filter-btn" onClick={handleFilter}>
+        <button className="filter-btn" onClick={handleTopResFilter}>
           Top rated restaurants
+        </button>
+
+        <button className="filter-btn" onClick={handleVegResFilter}>
+          Veg restaurants
         </button>
       </div>
 

@@ -264,3 +264,8 @@ ul {
 .menu-items:hover {
   box-shadow: 0px 10px 6px rgba(225, 0, 0, 0.1);
 }
+
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+}

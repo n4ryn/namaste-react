@@ -52,8 +52,6 @@ const Body = () => {
     setFilteredRestaurants(filteredList);
   };
 
-  console.log(filteredRestaurants);
-
   return (
     <div className="body">
       <div className="search">

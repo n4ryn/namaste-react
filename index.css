@@ -39,6 +39,11 @@ ul {
   mix-blend-mode: multiply;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
 .nav-items > ul {
   display: flex;
 }

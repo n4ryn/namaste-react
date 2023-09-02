@@ -1,6 +1,7 @@
 import { Component } from "react";
 
 import UserClass from "./UserClass";
+import UserContext from "../utils/UserContext";
 
 class About extends Component {
   constructor(props) {
@@ -23,9 +24,23 @@ class About extends Component {
     };
 
     return (
-      <div className="min-h-[calc(100vh_-_152px)]">
-        <h1>About Class Component</h1>
-        <button onClick={handleShowProfile}>About me</button>
+      <div className="min-h-[calc(100vh_-_152px)] flex flex-col justify-start items-center">
+        <button
+          className="bg-orange-400 text-white px-6 py-2 rounded-md hover:drop-shadow-lg"
+          onClick={handleShowProfile}
+        >
+          About me
+        </button>
+
+        <div>
+          LoggedIn user
+          {/* Use context in Class based component */}
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h1 className="text-xl font-bold">{loggedInUser}</h1>
+            )}
+          </UserContext.Consumer>
+        </div>
 
         {this?.state?.showProfile ? (
           <UserClass name={"First"} location={"Jaipur(Class)"} />

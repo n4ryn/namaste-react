@@ -53,33 +53,45 @@ const Body = () => {
   };
 
   return (
-    <div className="body">
-      <div className="search">
+    <div className="min-h-[calc(100vh_-_152px)]">
+      <div className="flex justify-center items-center">
         <input
           type="text"
           placeholder="Search for restaurants"
-          className="search-bar"
+          className="py-2 px-3 w-64 mr-4 text-sm border border-orange-400 focus:outline-none focus:drop-shadow-md rounded-md"
           value={searchText}
           onChange={(e) => {
             setSearchText(e?.target?.value);
           }}
         />
 
-        <button className="search-btn" onClick={handleSearch}>
+        <button
+          className="py-2 bg-orange-400 hover:drop-shadow-md text-sm text-white px-6 rounded-md"
+          onClick={handleSearch}
+        >
           Search
         </button>
       </div>
 
-      <div className="filter">
-        <button className="filter-btn" onClick={handleResetFilter}>
+      <div className="flex justify-center items-center my-4">
+        <button
+          className="mx-2 text-xs bg-orange-400 hover:drop-shadow-md text-white px-3 py-1 rounded-md"
+          onClick={handleResetFilter}
+        >
           All restaurants
         </button>
 
-        <button className="filter-btn" onClick={handleTopResFilter}>
+        <button
+          className="mx-2 text-xs bg-orange-400 hover:drop-shadow-md text-white px-3 py-1 rounded-md"
+          onClick={handleTopResFilter}
+        >
           Top rated restaurants
         </button>
 
-        <button className="filter-btn" onClick={handleVegResFilter}>
+        <button
+          className="mx-2 text-xs bg-orange-400 hover:drop-shadow-md text-white px-3 py-1 rounded-md"
+          onClick={handleVegResFilter}
+        >
           Veg restaurants
         </button>
       </div>
@@ -87,7 +99,7 @@ const Body = () => {
       {filteredRestaurants?.length === 0 ? (
         <ResCardShimmer />
       ) : (
-        <div className="res-container">
+        <div className="flex flex-wrap justify-center gap-6 px-2">
           {filteredRestaurants?.map((row) => (
             <Link key={row?.info?.id} to={`/restaurants/${row?.info?.id}`}>
               <RestaurantCard resData={row?.info} />

@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 
-import ResCardShimmer from "./ResCardShimmer";
 import { CDN_URL } from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import ResMenuShimmer from "./ResMenuShimmer";
 
 const RestaurantMenu = () => {
   // State and variables
@@ -12,9 +12,12 @@ const RestaurantMenu = () => {
   if (resInfo === null)
     return (
       <div className="body">
-        <ResCardShimmer />
+        <ResMenuShimmer />
       </div>
     );
+
+  // const va = false;
+  const va = true;
 
   const {
     name,
@@ -35,19 +38,26 @@ const RestaurantMenu = () => {
       recommendedItems?.indexOf(true)
     ]?.card?.card;
 
-  return (
-    <div className="body menu">
-      <div className="res-menu-card">
-        <img src={CDN_URL + cloudinaryImageId} className="res-logo" />
+  return va ? (
+    <div className="mx-5">
+      <div className="h-36 flex justify-start mb-8 gap-8 sm:gap-14">
+        <img
+          src={CDN_URL + cloudinaryImageId}
+          className="rounded-md h-36 w-48 object-cover mb-2"
+        />
 
-        <div className="res-menu-desc">
+        <div className="flex flex-col justify-between">
           <div>
-            <h1>{name}</h1>
+            <p className="text-xl font-bold mb-3">{name}</p>
             <p>{cuisines.join(", ")}</p>
           </div>
 
-          <div className="res-menu-meta">
-            <span className={avgRating >= 4 ? "stars-high" : "stars-low"}>
+          <div className="w-60 flex justify-between">
+            <span
+              className={`px-2 py-0.5 rounded-md ${
+                avgRating >= 4 ? "bg-green-200" : "bg-yellow-100"
+              }`}
+            >
               ⭐️ {avgRating}
             </span>
             <span>{veg ? "🟢" : "🔴"}</span>
@@ -56,55 +66,41 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      <div style={{ margin: 20 }}>
-        <h2>{title}</h2>
-        <p style={{ margin: "6px 0 30px", textTransform: "uppercase" }}>
-          {itemCards?.length} items
-        </p>
-
-        <>
+      <div className="">
+        <p className="uppercase font-semibold mb-1">{title}</p>
+        <p className="uppercase mb-8">{itemCards?.length} items</p>
+        <div>
           {itemCards?.map((row) => (
-            <div className="menu-items" key={row?.card?.info?.id}>
-              <div>
-                <h4 style={{ marginBottom: 6 }}>{row?.card?.info?.name}</h4>
-                <p>
-                  ₹
+            <div
+              className="mb-4 rounded-md p-3 flex justify-between items-start gap-6 border-b-2 border-r border-orange-300"
+              key={row?.card?.info?.id}
+            >
+              <div className="w-[70%]">
+                <p className="mb-2 font-semibold">{row?.card?.info?.name}</p>
+                <p className="text-sm mb-3">
+                  ₹{" "}
                   {row?.card?.info?.price / 100 ||
                     row?.card?.info?.defaultPrice / 100}
                 </p>
-                <br />
-                <p
-                  style={{
-                    fontSize: 14,
-                  }}
-                >
-                  {row?.card?.info?.description}
-                </p>
+                <p className="text-xs">{row?.card?.info?.description}</p>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 10,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
+
+              <div className="flex flex-col w-24 gap-2">
                 <img
                   src={CDN_URL + row?.card?.info?.imageId}
-                  style={{
-                    height: 100,
-                    borderRadius: 10,
-                    width: 119,
-                  }}
+                  className="w-24 h-24 rounded-md"
                 />
-                <button className="add-btn">Add</button>
+                <button className="bg-orange-400 text-white py-1 rounded-md hover:drop-shadow-md">
+                  Add
+                </button>
               </div>
             </div>
           ))}
-        </>
+        </div>
       </div>
     </div>
+  ) : (
+    <ResMenuShimmer />
   );
 };
 

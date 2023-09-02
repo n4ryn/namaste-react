@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="flex justify-between px-5 py-3">
       <p>Copyright 2023 - Vinay Kumar</p>
       <a
         target="_blank"
         href="https://github.com/n4ryn/namaste-react"
-        style={{ color: "rgba(255, 0, 0, 0.6)", fontWeight: 700 }}
+        className="text-orange-400 font-bold"
       >
         Code Repo ↗
       </a>

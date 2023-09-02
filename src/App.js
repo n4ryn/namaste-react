@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div className="app">
+    <div className="m-auto max-w-6xl">
       <Header />
       <Outlet />
       <Footer />

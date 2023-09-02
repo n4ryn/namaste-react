@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
     resData;
 
   return (
-    <div className="w-52 p-2.5 rounded-md border-orange-400 border hover:drop-shadow-md">
+    <div className="w-52 p-2.5 rounded-md border-orange-400 border hover:scale-[97%] transition-all">
       <img
         src={CDN_URL + cloudinaryImageId}
         className="rounded-md h-36 w-48 object-cover mb-2"
@@ -30,11 +30,29 @@ const RestaurantCard = (props) => {
         >
           ⭐️ {avgRating}
         </span>
-        <span>{veg ? "🟢" : "🔴"}</span>
+        <span>{veg ? "🟢" : "🔺"}</span>
         <span>{sla?.deliveryTime} min</span>
       </div>
     </div>
   );
+};
+
+// Higher Order Component
+// input - RestaurantCard => RestaurantCardPromoted
+
+export const withPromotedLabel = (RestaurantCard) => {
+  // Returning a function which is returning JSX
+  return (props) => {
+    return (
+      <div className="hover:scale-[97%] transition-all">
+        <label className="absolute bg-black text-white text-xs p-1 z-10 m-[-5] rounded-sm uppercase tracking-widest">
+          Promoted
+        </label>
+
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

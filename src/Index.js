@@ -8,13 +8,6 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 
-// Chunking
-// Code Splitting
-// Dynamic Bundling
-// Lazy Loading
-
-// import About from "./components/About";
-// import Grocery from "./components/Grocery";
 const About = lazy(() => import("./components/About"));
 const Grocery = lazy(() => import("./components/Grocery"));
 

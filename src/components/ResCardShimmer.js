@@ -19,6 +19,7 @@ const ResCardShimmer = () => {
       <Shimmer />
       <Shimmer />
       <Shimmer />
+      <Shimmer />
     </div>
   );
 };

@@ -28,7 +28,7 @@ class UserClass extends React.Component {
     const { name, location, avatar_url, login } = this?.state?.userInfo;
 
     return (
-      <div className="border border-blue-400 flex items-center gap-6 p-4 w-96 m-auto">
+      <div className="border border-blue-300 rounded-3xl flex items-center gap-6 p-4 w-96 m-auto">
         <img className="h-40" src={avatar_url} />
 
         <div className="text-lg">

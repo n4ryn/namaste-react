@@ -34,6 +34,9 @@ const Header = () => {
             <Link to="/about">About Us</Link>
           </li>
           <li className="ml-6 text-orange-400">
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          <li className="ml-6 text-orange-400">
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="ml-6 text-orange-400 text-xl">
@@ -58,7 +61,7 @@ const Header = () => {
           )}
 
           <button
-            className="ml-6  bg-orange-400 text-white w-24 px-6 py-2 rounded-md"
+            className="ml-6 bg-orange-400 text-white w-24 px-6 py-2 rounded-md"
             onClick={() => {
               btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
             }}

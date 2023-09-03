@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,8 +10,15 @@ const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart.items);
   const [checkout, setCheckout] = useState(false);
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (checkout) {
+      setTimeout(() => {
+        return navigate("/");
+      }, 1500);
+    }
+  }, [checkout]);
 
   const handleClearCart = () => {
     dispatch(clearCart());
@@ -47,7 +54,7 @@ const Cart = () => {
                 className="bg-orange-400 text-white px-6 py-2 rounded-md hover:drop-shadow-lg"
                 onClick={handleRedirect}
               >
-                Take me home!
+                Take me home! {console.log(subTotal)}
               </button>
             </div>
           ) : (
@@ -74,7 +81,9 @@ const Cart = () => {
 
         {cartItems?.length ? (
           <div className="md:w-4/12 flex flex-col justify-center items-center gap-6">
-            <p className="font-semibold text-lg">Total price: ₹{subTotal}</p>
+            <p className="font-semibold text-lg">
+              Total price: ₹{subTotal?.toFixed(2)}
+            </p>
             <button
               className="bg-orange-400 text-white px-6 py-2 rounded-md hover:drop-shadow-lg"
               onClick={handleCheckout}

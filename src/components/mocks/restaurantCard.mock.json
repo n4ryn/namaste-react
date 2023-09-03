@@ -1,0 +1,65 @@
+{
+  "id": "45607",
+  "name": "Domino's Pizza",
+  "cloudinaryImageId": "gzobptvged4mzsk4vnfx",
+  "locality": "DP Colony",
+  "areaName": "Sodala",
+  "costForTwo": "₹400 for two",
+  "cuisines": ["Pizzas", "Italian", "Pastas", "Desserts"],
+  "avgRating": 3.8,
+  "feeDetails": {
+    "restaurantId": "45607",
+    "fees": [
+      {
+        "name": "BASE_DISTANCE",
+        "fee": 2100
+      },
+      {
+        "name": "BASE_TIME"
+      },
+      {
+        "name": "ANCILLARY_SURGE_FEE"
+      }
+    ],
+    "totalFee": 2100
+  },
+  "parentId": "2456",
+  "avgRatingString": "3.8",
+  "totalRatingsString": "10K+",
+  "sla": {
+    "deliveryTime": 25,
+    "serviceability": "SERVICEABLE",
+    "slaString": "25 mins",
+    "iconType": "ICON_TYPE_EMPTY"
+  },
+  "availability": {
+    "nextCloseTime": "2023-09-04 02:57:00",
+    "opened": true
+  },
+  "badges": {},
+  "isOpen": true,
+  "type": "F",
+  "badgesV2": {
+    "entityBadges": {
+      "imageBased": {},
+      "textBased": {},
+      "textExtendedBadges": {}
+    }
+  },
+  "aggregatedDiscountInfoV3": {
+    "header": "₹100 OFF",
+    "subHeader": "ABOVE ₹999",
+    "discountTag": "FLAT DEAL"
+  },
+  "differentiatedUi": {
+    "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+    "differentiatedUiMediaDetails": {
+      "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+      "lottie": {},
+      "video": {}
+    }
+  },
+  "reviewsSummary": {},
+  "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+  "restaurantOfferPresentationInfo": {}
+}

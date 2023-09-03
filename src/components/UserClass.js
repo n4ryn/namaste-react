@@ -1,3 +1,4 @@
+import React from "react";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 
 class UserClass extends React.Component {

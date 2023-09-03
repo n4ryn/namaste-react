@@ -12,7 +12,6 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
           showItems && "shadow-none"
         }`}
       >
-        {/* Accordion Header */}
         <div
           className={`flex justify-between cursor-pointer ${
             showItems && "pb-3 border-b-2 border-gray-400"
@@ -25,7 +24,6 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
           <span>{showItems ? "⬆️" : "⬇️"}</span>
         </div>
 
-        {/* Accordion Body */}
         {showItems && <ItemList items={data?.itemCards} />}
       </div>
     </div>

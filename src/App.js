@@ -1,16 +1,18 @@
+import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
 import { Outlet } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { useEffect, useState } from "react";
+
 import UserContext from "./utils/UserContext";
+
+import appStore from "./redux/appStore";
 
 const App = () => {
   const [userName, setUserName] = useState("");
 
-  // Authentication
   useEffect(() => {
-    // Making API call and send username and password
     const data = {
       name: "Vinay Kumar",
     };
@@ -19,19 +21,15 @@ const App = () => {
   }, []);
 
   return (
-    // Providing context to whole app
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="m-auto max-w-6xl">
-        {/* Providing context to <Header/> component only */}
-        {/* <UserContext.Provider value={{ loggedInUser: "Elon Musk" }}>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="m-auto max-w-6xl">
           <Header />
-        </UserContext.Provider> */}
-
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+          <Outlet />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 

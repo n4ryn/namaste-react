@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { CDN_URL } from "../utils/constants";
-import useRestaurantMenu from "../utils/useRestaurantMenu";
 import ResMenuShimmer from "./ResMenuShimmer";
 import RestaurantCategory from "./RestaurantCategory";
+
+import { CDN_URL } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
   // State and variables
@@ -63,9 +64,7 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      {/* Categories Accordion */}
       {categories?.map((category, index) => (
-        // Controlled component
         <RestaurantCategory
           key={category?.card?.card?.title}
           data={category?.card?.card}

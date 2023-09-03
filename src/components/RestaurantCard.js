@@ -38,10 +38,7 @@ const RestaurantCard = (props) => {
 };
 
 // Higher Order Component
-// input - RestaurantCard => RestaurantCardPromoted
-
 export const withPromotedLabel = (RestaurantCard) => {
-  // Returning a function which is returning JSX
   return (props) => {
     return (
       <div className="hover:scale-[97%] transition-all">

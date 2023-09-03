@@ -1,4 +1,4 @@
-import React from "react";
+import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -33,8 +33,15 @@ class UserClass extends React.Component {
 
         <div className="text-lg">
           <p>Name: {name}</p>
-          <p>Username: {login}</p>
+          <p>Username: @{login}</p>
           <p>Location: {location}</p>
+          <a
+            className="flex items-center gap-2 pt-4 font-bold uppercase text-sm tracking-widest text-sky-400"
+            href="https://github.com/n4ryn"
+            target="_blank"
+          >
+            github <BsFillArrowUpRightCircleFill />
+          </a>
         </div>
       </div>
     );

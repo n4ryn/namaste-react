@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
-import { LOGO_URL } from "../utils/constants";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
+
 import { HiShoppingCart } from "react-icons/hi";
+
+import useOnlineStatus from "../utils/useOnlineStatus";
+import { LOGO_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 
 const Header = () => {
@@ -10,6 +13,8 @@ const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store?.cart?.items);
 
   return (
     <div className="flex sticky top-0 py-3 justify-between items-center px-5 drop-shadow-lg  mb-8 bg-white z-50">
@@ -29,16 +34,21 @@ const Header = () => {
             <Link to="/about">About Us</Link>
           </li>
           <li className="ml-6 text-orange-400">
-            <Link to="/contact">Contact Us</Link>
-          </li>
-          <li className="ml-6 text-orange-400">
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="ml-6 text-orange-400 text-xl">
-            <HiShoppingCart />
+            <Link to="/cart" className="flex items-center">
+              <HiShoppingCart />
+              {cartItems.length ? (
+                <span className="text-xs relative bottom-3 right-2 text-white bg-orange-400 px-1 rounded-lg">
+                  {cartItems.length}
+                </span>
+              ) : (
+                ""
+              )}
+            </Link>
           </li>
 
-          {/* Showing username if logged in */}
           {btnName === "Logout" ? (
             <li className="ml-4 text-black">
               Hi {loggedInUser?.split(" ")[0]}!

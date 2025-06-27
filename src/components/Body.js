@@ -23,10 +23,10 @@ const Body = () => {
     const data = await fetch(RES_LIST);
     const json = await data?.json();
 
-    const topResList = json?.data?.cards?.filter(
+    const topResList = json?.data?.data?.cards?.filter(
       (res) => res?.card?.card?.id === "top_brands_for_you"
     );
-    const resList = json?.data?.cards?.filter(
+    const resList = json?.data?.data?.cards?.filter(
       (res) => res?.card?.card?.id === "restaurant_grid_listing"
     );
 
